@@ -1,4 +1,4 @@
-# Engineering Calculator 🧮
+# Engineering Calculator 🧐🤘
 
 ## Description
 This is a styled engineering calculator built using HTML, CSS, and JavaScript. It provides a user-friendly interface for performing various mathematical operations.
