@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Engineering Calculator</title>
+  <style>
+    body {
+      background-color: #091930;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #calculator-container {
+      text-align: center;
+    }
+
+    #calculator {
+      width: 320px;
+      padding: 20px;
+      border: 1px solid #3BB09E;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      background: #fff;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    #title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #3BB09E;
+    }
+
+    input {
+      grid-column: span 4;
+      margin-bottom: 10px;
+      padding: 8px;
+      font-size: 16px;
+      background: #fff;
+      color: #091930;
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #3BB09E;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #328f87;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 20px;
+      text-align: center;
+      font-weight: 500;
+      color: #115F54;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .social_media {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .social_media a {
+      text-decoration: none;
+      color: #16A591;
+      font-size: 1.3rem;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.1/math.min.js"></script>
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+  <div id="calculator-container">
+    <div id="title">Engineering Calculator</div>
+    <div id="calculator">
+      <input type="text" id="display" disabled>
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button onclick="appendToDisplay('/')">/</button>
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button onclick="appendToDisplay('*')">*</button>
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button onclick="appendToDisplay('-')">-</button>
+      <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button onclick="appendToDisplay('(')">(</button>
+      <button onclick="appendToDisplay(')')">)</button>
+      <button onclick="calculate()" style="grid-column: span 2;">=</button>
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="appendToDisplay('+')">+</button>
+      <button onclick="appendToDisplay('sqrt(')">√</button>
+      <button onclick="appendToDisplay('^')">^</button>
+      <button onclick="appendToDisplay('log(')">log</button>
+      <button onclick="appendToDisplay('sin(')">sin</button>
+      <button onclick="appendToDisplay('cos(')">cos</button>
+      <button onclick="appendToDisplay('tan(')">tan</button>
+      <button onclick="appendToDisplay('pi')">π</button>
+      <button onclick="appendToDisplay('e')">e</button>
+    </div>
+  </div>
+
+  <footer>
+    Designed and Developed By <br>
+    Vivek Lohar <br><br>
+    <ul class="social_media">
+      <a href="https://vivekmohanlohar.github.io/viveklohar/" data-aos="fade-up" data-aos-offset="0" data-aos-delay="5000"><i class="fab fa-globe"></i></a> &nbsp;
+      <a href="https://github.com/vivekmohanlohar" data-aos="fade-" data-aos-offset="0" data-aos-delay="5000"><i class="fab fa-github"></i></a>&nbsp;
+      <a href="https://in.linkedin.com/in/vivekmohanlohar" data-aos="fade-up" data-aos-offset="0" data-aos-delay="5000"><i class="fab fa-linkedin-in"></i></a>&nbsp;
+      <a href="https://www.instagram.com/vivekmohanlohar/" data-aos="fade-up" data-aos-offset="0" data-aos-delay="5000"><i class="fab fa-instagram"></i></a>
+    </ul>
+  </footer>
+
+  <script>
+    function appendToDisplay(value) {
+      document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
+
+    function calculate() {
+      try {
+        const result = math.evaluate(document.getElementById('display').value);
+        document.getElementById('display').value = result;
+      } catch (error) {
+        document.getElementById('display').value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
