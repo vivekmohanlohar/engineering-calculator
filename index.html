@@ -15,6 +15,14 @@
       height: 80vh;
       margin: 0;
     }
+    
+    .red {
+      background: #A51616;
+    }
+    
+    .green {
+      background: #26D26C
+    }
 
     #calculator-container {
       text-align: center;
@@ -48,14 +56,14 @@
       color: #3BB09E;
       border: 1px solid #3BB09E;
       border-radius: 4px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
     }
 
     button {
       padding: 10px;
       font-size: 16px;
       cursor: pointer;
-      background: #3BB09E;
+      background: #16A591;
       color: #fff;
       border: none;
       border-radius: 4px;
@@ -115,8 +123,8 @@
       <button onclick="appendToDisplay('.')">.</button>
       <button onclick="appendToDisplay('(')">(</button>
       <button onclick="appendToDisplay(')')">)</button>
-      <button onclick="calculate()" style="grid-column: span 2;">=</button>
-      <button onclick="clearDisplay()">C</button>
+      <button class="green" onclick="calculate()" style="grid-column: span 2;">=</button>
+      <button class="red" onclick="clearDisplay()">C</button>
       <button onclick="appendToDisplay('+')">+</button>
       <button onclick="appendToDisplay('sqrt(')">√</button>
       <button onclick="appendToDisplay('^')">^</button>
